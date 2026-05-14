@@ -701,8 +701,3 @@ This day provided the foundation for understanding how Verilog RTL is converted 
 Original workshop repository:
 
 [https://github.com/kunalg123/sky130RTLDesignAndSynthesisWorkshop](https://github.com/kunalg123/sky130RTLDesignAndSynthesisWorkshop)
-
-```
-```
-
-
