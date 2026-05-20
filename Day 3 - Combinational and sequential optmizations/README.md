@@ -274,6 +274,21 @@ If a register output remains constant, synthesis tools remove unnecessary flip-f
 # dff_const1
 
 ## Verilog Code
+```
+module dff_const1(input clk, input reset, output reg q);
+
+always @(posedge clk, posedge reset)
+begin
+	if(reset)
+		q <= 1'b0;
+	else
+		q <= 1'b1;
+end
+
+endmodule
+```
+
+##  RTL Screenshot 
 
 ![dff\_const1.v](dff_const1.v.png)
 
@@ -296,6 +311,21 @@ If a register output remains constant, synthesis tools remove unnecessary flip-f
 # dff_const2
 
 ## Verilog Code
+```
+module dff_const2(input clk, input reset, output reg q);
+
+always @(posedge clk, posedge reset)
+begin
+	if(reset)
+		q <= 1'b1;
+	else
+		q <= 1'b1;
+end
+
+endmodule
+```
+
+##  RTL Screenshot 
 
 ![dff\_const2.v](dff_const2.v.png)
 
@@ -324,6 +354,28 @@ in both conditions, the synthesis tool removed the flip-flop completely.
 # dff_const3
 
 ## Verilog Code
+```
+module dff_const3(input clk, input reset, output reg q);
+reg q1;
+
+always @(posedge clk, posedge reset)
+begin
+	if(reset)
+	begin
+		q <= 1'b1;
+		q1 <= 1'b0;
+	end
+	else
+	begin
+		q1 <= 1'b1;
+		q <= q1;
+	end
+end
+
+endmodule
+```
+
+##  RTL Screenshot 
 
 ![dff\_const3.v](dff_const3.v.png)
 
@@ -352,6 +404,29 @@ flip-flops are preserved.
 # dff_const4
 
 ## Verilog Code
+```
+module dff_const4(input clk, input reset, output reg q);
+reg q1;
+
+always @(posedge clk, posedge reset)
+begin
+	if(reset)
+	begin
+		q <= 1'b1;
+		q1 <= 1'b1;
+	end
+	else
+	begin
+		q1 <= 1'b1;
+		q <= q1;
+	end
+end
+
+endmodule
+```
+
+##  RTL Screenshot 
+
 
 ![dff\_const4.v](dff_const4.v.png)
 
@@ -374,6 +449,29 @@ The synthesis tool removes unnecessary sequential hardware and replaces outputs 
 # dff_const5
 
 ## Verilog Code
+```
+module dff_const5(input clk, input reset, output reg q);
+reg q1;
+
+always @(posedge clk, posedge reset)
+begin
+	if(reset)
+	begin
+		q <= 1'b0;
+		q1 <= 1'b0;
+	end
+	else
+	begin
+		q1 <= 1'b1;
+		q <= q1;
+	end
+end
+
+endmodule
+```
+
+##  RTL Screenshot 
+
 
 ![dff\_const5.v](dff_const5v.png)
 
@@ -407,7 +505,26 @@ Counters are optimized depending on which bits are actually used.
 
 # counter_opt
 
-## RTL Code
+## Verilog Code
+```
+module counter_opt (input clk , input reset , output q);
+
+reg [2:0] count;
+assign q = count[0];
+
+always @(posedge clk ,posedge reset)
+begin
+	if(reset)
+		count <= 3'b000;
+	else
+		count <= count + 1;
+end
+
+endmodule
+```
+
+##  RTL Screenshot 
+
 
 ![counter\_opt.v](counter_opt.v.png)
 
@@ -440,7 +557,25 @@ This demonstrates unused register optimization.
 
 # counter_opt2
 
-## RTL Code
+## Verilog Code
+```
+module counter_opt (input clk , input reset , output q);
+
+reg [2:0] count;
+assign q = count[2:0] == 3'b100;
+
+always @(posedge clk ,posedge reset)
+begin
+	if(reset)
+		count <= 3'b000;
+	else
+		count <= count + 1;
+end
+
+endmodule
+```
+
+##  RTL Screenshot 
 
 ![counter\_opt2.v](counter_opt2.v.png)
 
