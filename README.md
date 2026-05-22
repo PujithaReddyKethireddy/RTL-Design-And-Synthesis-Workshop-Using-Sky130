@@ -77,17 +77,20 @@ This workshop focuses on:
 | Git & GitHub | Version Control |
 
 ---
-
 # 📂 Workshop Structure
 
 The workshop is organized day-wise, each with a dedicated folder and README:
 
-- [Day 1: Introduction to Verilog RTL Design & Synthesis](./Day1/README.md)
-- [Day 2: Timing Libraries, Hierarchical vs Flat Synthesis & Efficient Flip-Flop Coding](./Day2/README.md)
-- [Day 3: Combinational and Sequential Optimization](./Day3/README.md)
-- [Day 4: Gate-Level Simulation (GLS), Blocking vs Non-Blocking in Verilog & Synthesis-Simulation Mismatch](./Day4/README.md)
-- [Day 5: Optimization in Synthesis](./Day5/README.md)
+- [Day 1 - Introduction to Verilog RTL design and Synthesis](./Day%201%20-%20Introduction%20to%20Verilog%20RTL%20design%20and%20Synthesis/README.md)
 
+- [Day 2 - Timing libs, hierarchical vs flat synthesis and efficient flop coding styles](./Day%202%20-%20Timing%20libs,%20hierarchical%20vs%20flat%20synthesis%20and%20efficient%20flop%20coding%20styles/README.md)
+
+- [Day 3 - Combinational and sequential optimizations](./Day%203%20-%20Combinational%20and%20sequential%20optimizations/README.md)
+
+- [Day 4 - GLS, blocking vs non-blocking and Synthesis-Simulation mismatch](./Day%204%20-%20GLS,%20blocking%20vs%20non-blocking%20and%20Synthesis-Simulation%20mismatch/README.md)
+
+- [Day 5 - Optimization in synthesis](./Day%205%20-%20Optimization%20in%20synthesis/README.md)
+  
 Each day’s README includes:
 
 - Detailed theory explanations
